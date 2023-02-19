@@ -33,12 +33,13 @@ function Form() {
   const validateMessages = {
     required: "${label} is required!",
   };
+  const delay = ms => new Promise(res => setTimeout(res, ms));
 
-  const onFinish = (formInputData) => {
+  const onFinish = async (formInputData) => {
     console.log("onfinish", formInputData)
     let post_id;
     console.log("sending POST request to backend");
-    axios
+    await axios
       .post(localStorage.getItem("backend_url") + "/api/post/", {
         category: formInputData.category,
         title: formInputData.title,
@@ -66,9 +67,10 @@ function Form() {
         });
       })
       .catch((error) => console.log(error));
-    tg.MainButton.hideProgress()
-    tg.MainButton.hide()
-    navigate("/listings");
+    await delay(5000);
+    await tg.MainButton.hideProgress()
+    await tg.MainButton.hide().then(
+      navigate("/listings"));
   };
 
   const handleChange = (propName, value) => {
