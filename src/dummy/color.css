@@ -1,0 +1,15 @@
+.color {
+  --tg-theme-bg-color: #ffffff;
+  --tg-theme-button-color: #40a7e3;
+  --tg-theme-button-text-color: #ffffff;
+  --tg-theme-hint-color: #999999;
+  --tg-theme-link-color: #168acd;
+  --tg-theme-secondary-bg-color: #f1f1f1; /* also mouseover background */
+  --tg-theme-text-color: #000000;
+  --tg-viewport-height: 100vh;
+  --tg-viewport-stable-height: 100vh;
+  --tg-default-secondary-text: #edecec;
+  --market-theme-bg-color: #f2a601;
+  --service-theme-bg-color: #06ba9c;
+  --exchange-theme-bg-color: #9c24fc;
+}

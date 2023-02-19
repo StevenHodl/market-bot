@@ -1,0 +1,25 @@
+.container {
+}
+
+.top_section {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 30px;
+  margin-block: 40px;
+}
+.bottom_section {
+  display: flex;
+  flex-direction: column;
+}
+.images_container {
+}
+.main_info {
+  display: flex;
+  flex-direction: column;
+}
+.summary_info {
+  display: grid;
+}
+.detailed_info {
+}

@@ -1,0 +1,5 @@
+.listings_area {
+  width: clamp(400px, 90%, 1000px);
+  margin: "0px";
+  text-align: "center";
+}
