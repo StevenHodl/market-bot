@@ -3,6 +3,7 @@ import { PlusOutlined } from "@ant-design/icons";
 import { Form as AntForm } from "antd";
 import "./Form.css";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect } from "react";
 import axios from "axios";
 
@@ -14,7 +15,7 @@ let formDataPersist = {};
 function Form() {
 
   const { tg } = useTg();
-
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     category: "Market",
     title: "",
@@ -65,6 +66,9 @@ function Form() {
         });
       })
       .catch((error) => console.log(error));
+    tg.MainButton.hideProgress()
+    tg.MainButton.hide()
+    navigate("/listings");
   };
 
   const handleChange = (propName, value) => {
@@ -79,6 +83,7 @@ function Form() {
 
 
   const onSendData = useCallback(() => {
+    tg.MainButton.showProgress(false);
     console.log(tg);
     const user_id = tg?.initDataUnsafe?.user?.id;
     if (user_id !== undefined) {

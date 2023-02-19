@@ -19,6 +19,7 @@
   transition: all 500ms;
   width: clamp(132px, 15%, 400px);
   height: clamp(132px, 15%, 400px);
+  overflow: hidden;
 }
 
 .slide_actions {

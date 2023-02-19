@@ -34,9 +34,10 @@ class Post extends Component {
           <Tag color="volcano">Market</Tag>
         </div>
         <div className="card_footer">
-          {console.log(user[0])}
-          <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}>{user[0]?.name?.charAt(0) + user[0]?.surname?.charAt(0)}</Avatar>
-          <div className="px-3">{user[0].name + " " + user[0].surname}</div>
+          <Avatar /*src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}*/>
+            {user[0]?.name?.charAt(0) + ((!user[0].surname) ? user[0]?.name?.charAt(1) : user[0].surname.charAt(0))}
+          </Avatar>
+          <div className="px-3">{user[0].name + (!user[0].surname ? `` : ` ${user[0].surname}`)}</div>
           <span
             className="ant-rate-text"
             style={{ padding: "2px", marginLeft: "auto" }}

@@ -65,7 +65,6 @@ class SlideShow extends Component {
     const { images } = this.props;
     return (
       <div className="slideshow_main">
-        {console.log(images)}
         <Slideshow imgs={images} />
       </div>
     );
