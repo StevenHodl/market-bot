@@ -1,4 +1,4 @@
-import { Button, Input, InputNumber, Select, Switch, Upload } from "antd";
+import { Button, Input, InputNumber, Select, Switch, Upload, message } from "antd";
 import { PlusOutlined } from "@ant-design/icons";
 import { Form as AntForm } from "antd";
 import "./Form.css";
@@ -67,7 +67,7 @@ function Form() {
         });
       })
       .catch((error) => console.log(error));
-    await delay(5000);
+    await delay(2000);
     await tg.MainButton.hideProgress()
     await tg.MainButton.hide().then(
       navigate("/listings"));
@@ -86,6 +86,8 @@ function Form() {
 
   const onSendData = useCallback(() => {
     tg.MainButton.showProgress(false);
+    showProgressMsg()
+
     console.log(tg);
     const user_id = tg?.initDataUnsafe?.user?.id;
     if (user_id !== undefined) {
@@ -104,6 +106,18 @@ function Form() {
       tg.offEvent("mainButtonClicked", onSendData);
     };
   }, [onSendData]);
+
+  const [messageApi, contextHolder] = message.useMessage();
+  const showProgressMsg = () => {
+    messageApi
+      .open({
+        type: 'loading',
+        content: 'Action in progress..',
+        duration: 2.5,
+      })
+      .then(() => message.success('Loading finished', 2.5))
+      .then(() => message.info('Loading finished', 2.5));
+  };
 
   return (
     <div className="form_container">
@@ -130,6 +144,7 @@ function Form() {
         }}
         validateMessages={validateMessages}
       >
+        {contextHolder}
         <AntForm.Item label="Select">
           <Select value={formData.category} onChange={(value) => handleChange("category", value)}>
             <Select.Option value="Market">Market</Select.Option>
