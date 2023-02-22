@@ -113,10 +113,9 @@ function Form() {
       .open({
         type: 'loading',
         content: 'Action in progress..',
-        duration: 2.5,
+        duration: 2,
       })
       .then(() => message.success('Loading finished', 2.5))
-      .then(() => message.info('Loading finished', 2.5));
   };
 
   return (
