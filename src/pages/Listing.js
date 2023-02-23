@@ -6,6 +6,7 @@ import "./Listing.css";
 import { Avatar, Rate, Tag } from "antd";
 import SlideShow from "../components/commons/SlideShow";
 
+
 export function Listing() {
   let { id } = useParams();
   const [listingDetails, setListingDetails] = useState([]);
@@ -31,13 +32,30 @@ export function Listing() {
     }
   }, []);
 
+
+
   return (
+
     <PageWrapper>
       <div className="container">
         <div className="top_section">
           <div className="images_container">
-            {/* <SlideShow images={images_arr}></SlideShow> */}
-            {/* <img src={listingDetails.thumbnail} alt={listingDetails.title} /> */}
+
+
+            <SlideShow
+              images={[
+                "https://images.unsplash.com/photo-1585255318859-f5c15f4cffe9?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1584226761916-3fd67ab5ac3a?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1585179292338-45ba1f62f082?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1584753987666-ead137ec0614?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1584691267914-91c0bee55964?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1585084335487-f653d0859c14?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+                "https://images.unsplash.com/photo-1583217874534-581393fd5325?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=500&ixlib=rb-1.2.1&q=80&w=500",
+              ]}
+            ></SlideShow>
+
+
+
           </div>
           <div className="main_info">
             <Tag color="volcano">Market</Tag>
@@ -83,7 +101,7 @@ export function Listing() {
           </div>
         </div>
       </div>
-    </PageWrapper>
+    </PageWrapper >
   );
 }
 export default Listing;
