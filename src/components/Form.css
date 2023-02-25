@@ -1,0 +1,15 @@
+.form_container {
+  display: flex;
+  justify-content: "center";
+  margin-block: 40px;
+  padding-block: 70px;
+  padding-inline: 20px;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 10px;
+  width: clamp(300px, 80%, 900px);
+}
+
+.form {
+  width: clamp(200px, 70%, 800px);
+}

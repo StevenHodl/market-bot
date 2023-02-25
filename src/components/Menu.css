@@ -65,12 +65,16 @@
   }
 }
 
-.floatButton > * {
+.floatButton {
   scale: 130%;
+}
+
+.floatButton > * {
   background-color: var(--tg-theme-button-color, #40a7e3) !important;
+  margin: 0;
 }
 
 .floatButtonIcon {
-  scale: 100%;
+  scale: 130%;
   color: var(--tg-theme-button-text-color, #ffffff);
 }

@@ -127,16 +127,17 @@ function Form() {
           tg.MainButton.text = "Submit";
           tg.MainButton.show();
         }}
+        scrollToFirstError
         onFinishFailed={(event) => {
           console.log("failed");
         }}
-        scrollToFirstError
         labelCol={{
-          span: 10,
+          span: 12
         }}
         wrapperCol={{
-          span: 29,
+          span: 60,
         }}
+        className="form"
         layout="horizontal"
         initialValues={{
           size: "default",
@@ -191,6 +192,18 @@ function Form() {
           <Switch checked={formData.restrict} onChange={(e) => handleChange("restrict", e)} />
         </AntForm.Item>
 
+        <AntForm.Item name="price" label="Price">
+          <Input.Group compact>
+
+            <Input value={formData.price} style={{ width: '40%' }} type="number" onChange={(e) => handleChange("price", e.target.value)} ></Input>
+            <Select defaultValue="Euro" value={formData.curr} style={{ minWidth: '40px' }} onChange={(e) => handleChange("curr", e)} >
+              <Select.Option value="Sats" >Sats</Select.Option>
+              <Select.Option value="Euro" >Euro</Select.Option>
+            </Select>
+          </Input.Group>
+        </AntForm.Item>
+
+
         <AntForm.Item label="Upload Photos" valuePropName="fileList">
           <Upload
             multiple
@@ -214,31 +227,8 @@ function Form() {
             </div>
           </Upload>
         </AntForm.Item>
-        <div>
-          <Input.Group compact>
-            <AntForm.Item name="price" label="Price">
-              <Input
-                type="text"
-                style={{
-                  width: 80,
-                }}
-                value={formData.price} onChange={(e) => handleChange("price", e.target.value)}
-              />
-            </AntForm.Item>
-            <AntForm.Item name="currency">
-              <Select
-                style={{
-                  width: 80,
-                  margin: "0 8px",
-                }}
-                value={formData.curr} onChange={(e) => handleChange("curr", e)}
-              >
-                <Select.Option value="Sats">Sats</Select.Option>
-                <Select.Option value="Euro">Euro</Select.Option>
-              </Select>
-            </AntForm.Item>
-          </Input.Group>
-        </div>
+
+
         <AntForm.Item>
           <Button type="primary" htmlType="submit">
             Submit
@@ -248,7 +238,7 @@ function Form() {
           <Button>Reset</Button>
         </AntForm.Item>
       </AntForm>
-    </div>
+    </div >
   );
 };
 
