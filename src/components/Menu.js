@@ -46,7 +46,7 @@ class Menu extends Component {
 
         </ul>
         <NavLink to="/listings/new">
-          <FloatButton tooltip={<div>Create new post</div>} icon={<PlusCircleFilled />} />
+          <FloatButton tooltip={<div>Create new post</div>} icon={<PlusCircleFilled className="floatButtonIcon" />} className="floatButton" />
           {/* <button className="menu_add_listing">Create a new posting</button> */}
         </NavLink>
       </nav>

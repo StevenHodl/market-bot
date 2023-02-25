@@ -231,11 +231,10 @@ function Form() {
                   width: 80,
                   margin: "0 8px",
                 }}
-                value={formData.curr} onChange={(e) => handleChange("curr", e.target.value)}
+                value={formData.curr} onChange={(e) => handleChange("curr", e)}
               >
                 <Select.Option value="Sats">Sats</Select.Option>
-                <Select.Option value="BTC">BTC</Select.Option>
-                <Select.Option value="Dollar">Euro</Select.Option>
+                <Select.Option value="Euro">Euro</Select.Option>
               </Select>
             </AntForm.Item>
           </Input.Group>

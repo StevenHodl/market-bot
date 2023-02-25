@@ -10,6 +10,7 @@ const tele = window.Telegram.WebApp;
 function App() {
   useEffect(() => {
     tele.ready();
+    tele.expand()
   });
 
   return (
@@ -23,20 +24,5 @@ function App() {
   );
 }
 
-/* class App extends Component {
-  state = {};
-
-  render() {
-    return (
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/categories" element={<Categories />} />
-        <Route path="/listings/*" element={<ListingRoutes />} />
-        <Route path="/admin" element={<Admin />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    );
-  }
-} */
 
 export default App;
