@@ -101,22 +101,19 @@ function Form() {
   }, []);
 
   const ref = useRef();
-  function handleKeyUp(event) {
-    console.log("submitting")
-    if (event.keyCode === 13) {
-      console.log("submit1")
-      ref.current.submit();
-    }
+  function onSubmit() {
+    console.log("submit1")
+    ref.current.submit();
   }
 
   useEffect(() => {
     tg.MainButton.text = "Submit";
     tg.MainButton.show();
-    tg.onEvent("mainButtonClicked", handleKeyUp);
+    tg.onEvent("mainButtonClicked", onSubmit);
     return () => {
-      tg.offEvent("mainButtonClicked", handleKeyUp);
+      tg.offEvent("mainButtonClicked", onSubmit);
     };
-  }, []);
+  }, [onSubmit]);
 
   const [messageApi, contextHolder] = message.useMessage();
   const showProgressMsg = () => {
@@ -131,7 +128,7 @@ function Form() {
 
   return (
     <div className="form_container">
-      <AntForm ref={ref} onKeyUp={handleKeyUp} tabIndex={0}
+      <AntForm ref={ref} tabIndex={0}
         name="NewPosting"
         onFinish={() => {
           console.log("submit2")
