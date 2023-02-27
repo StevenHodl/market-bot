@@ -5,7 +5,6 @@ import "./Form.css";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCallback, useEffect } from "react";
-import { useRef } from 'react';
 import axios from "axios";
 
 import { useTg } from "../hooks/useTg";
@@ -89,6 +88,7 @@ function Form() {
     tg.MainButton.showProgress(false);
     showProgressMsg()
 
+    console.log(tg);
     const user_id = tg?.initDataUnsafe?.user?.id;
     if (user_id !== undefined) {
       console.log(user_id)
@@ -100,23 +100,12 @@ function Form() {
     }
   }, []);
 
-  const ref = useRef();
-  function handleKeyUp(event) {
-    console.log("submitting")
-    if (event.keyCode === 13) {
-      console.log("submit1")
-      ref.current.submit();
-    }
-  }
-
   useEffect(() => {
-    tg.MainButton.text = "Submit";
-    tg.MainButton.show();
-    tg.onEvent("mainButtonClicked", handleKeyUp);
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("mainButtonClicked", handleKeyUp);
+      tg.offEvent("mainButtonClicked", onSendData);
     };
-  }, []);
+  }, [onSendData]);
 
   const [messageApi, contextHolder] = message.useMessage();
   const showProgressMsg = () => {
@@ -131,11 +120,12 @@ function Form() {
 
   return (
     <div className="form_container">
-      <AntForm ref={ref} onKeyUp={handleKeyUp} tabIndex={0}
+      <AntForm
         name="NewPosting"
         onFinish={() => {
-          console.log("submit2")
           formDataPersist = formData
+          tg.MainButton.text = "Submit";
+          tg.MainButton.show();
         }}
         scrollToFirstError
         onFinishFailed={(event) => {
@@ -239,11 +229,14 @@ function Form() {
         </AntForm.Item>
 
 
-        {/*         <AntForm.Item>
+        <AntForm.Item>
           <Button type="primary" htmlType="submit">
             Submit
           </Button>
-        </AntForm.Item> */}
+        </AntForm.Item>
+        <AntForm.Item>
+          <Button>Reset</Button>
+        </AntForm.Item>
       </AntForm>
     </div >
   );

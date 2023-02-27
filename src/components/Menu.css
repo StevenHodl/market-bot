@@ -47,6 +47,9 @@
 .float_button {
   scale: 130%;
 }
+.float_button-hidden {
+  display: none;
+}
 
 .float_button > * {
   background-color: var(--tg-theme-button-color, #40a7e3) !important;

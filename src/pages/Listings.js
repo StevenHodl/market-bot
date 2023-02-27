@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./Listings.css";
-import React, { Component, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";
 import Post from "../components/Post";
 
