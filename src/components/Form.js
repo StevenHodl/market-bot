@@ -131,7 +131,7 @@ function Form() {
         name="NewPosting"
         onFinish={() => {
           formDataPersist = formData
-          onSendData
+          onSendData();
         }}
         scrollToFirstError
         onFinishFailed={(event) => {
