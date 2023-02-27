@@ -203,8 +203,8 @@ function Form() {
 
             <Input value={formData.price} style={{ width: '40%' }} type="number" onChange={(e) => handleChange("price", e.target.value)} ></Input>
             <Select defaultValue="Euro" value={formData.curr} style={{ minWidth: '40px' }} onChange={(e) => handleChange("curr", e)} >
-              <Select.Option value="Sats" >Sats</Select.Option>
-              <Select.Option value="Euro" >Euro</Select.Option>
+              <Select.Option value="Sat" >Sats</Select.Option>
+              <Select.Option value="Eur" >Euro</Select.Option>
             </Select>
           </Input.Group>
         </AntForm.Item>
