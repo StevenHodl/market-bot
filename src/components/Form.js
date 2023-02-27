@@ -54,8 +54,8 @@ function Form() {
       })
       .then((response) => {
         post_id = response.data.id;
-        formInputData.files.fileList.map((file) => {
-          console.log(file.originFileObj);
+        formInputData?.files?.fileList.map((file) => {
+          console.log(formInputData.files.fileList);
           const formData = new FormData();
           formData.append("orig_name", file.name);
           formData.append("post_id", post_id);
