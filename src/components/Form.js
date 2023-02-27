@@ -102,7 +102,6 @@ function Form() {
 
   const ref = useRef();
   function onSubmit() {
-    console.log("submit1")
     ref.current.submit();
   }
 
@@ -131,8 +130,8 @@ function Form() {
       <AntForm ref={ref} tabIndex={0}
         name="NewPosting"
         onFinish={() => {
-          console.log("submit2")
           formDataPersist = formData
+          onSendData
         }}
         scrollToFirstError
         onFinishFailed={(event) => {
