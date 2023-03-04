@@ -50,16 +50,18 @@ export function Listing() {
 
   const tableColumns = [
     {
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
+      fixed: 'left',
+      render: (text) => <a>{text}</a>,
+    },
+    {
       title: 'Connection',
       dataIndex: 'connection',
       key: 'connection',
     },
-    {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: (text) => <a>{text}</a>,
-    },
+
     {
       title: 'Tier',
       dataIndex: 'tier',
@@ -314,16 +316,20 @@ export function Listing() {
                 </div>
               </div>
             </div>
-            {/* <div className="info sponsors_info">
+            <div className="info sponsors_info">
               <div className="header sponsors-header">
                 Sponsors
               </div>
               <div className="sponsors-section">
-                <Table columns={tableColumns} dataSource={sponsorData} pagination={{
-                  position: ["none"]
-                }} />
+                <Table columns={tableColumns} dataSource={sponsorData}
+                  scroll={{
+                    x: 800,
+                  }}
+                  pagination={{
+                    position: ["none"]
+                  }} />
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

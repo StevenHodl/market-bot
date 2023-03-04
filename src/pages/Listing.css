@@ -54,7 +54,8 @@
   border-bottom: 1px solid var(--tg-theme-third-bg-color);
 }
 .header {
-  font-size: 1.3rem;
+  /* font-size: 1.3rem; */
+  font-size: 1rem;
   font-weight: 700;
   color: var(--tg-default-third-text);
   text-transform: capitalize;
@@ -124,6 +125,7 @@
   gap: 0.8rem;
 }
 .post-title {
+  /* font-size: 1.5rem; */
   font-size: 1.5rem;
   font-weight: 700;
 }
@@ -227,7 +229,8 @@
   .advertiser-body-header {
   color: var(--market-theme-bg-color);
   font-weight: 700;
-  font-size: 1.1rem;
+  /* font-size: 1.1rem; */
+  font-size: 0.9rem;
 }
 
 /* sponsors section style */
