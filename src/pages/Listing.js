@@ -314,7 +314,7 @@ export function Listing() {
                 </div>
               </div>
             </div>
-            <div className="info sponsors_info">
+            {/* <div className="info sponsors_info">
               <div className="header sponsors-header">
                 Sponsors
               </div>
@@ -323,7 +323,7 @@ export function Listing() {
                   position: ["none"]
                 }} />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
