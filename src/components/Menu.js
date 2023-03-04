@@ -48,7 +48,7 @@ class Menu extends Component {
         </ul>
         <NavLink to="/listings/new">
           <FloatButton tooltip={<div>Create new post</div>} icon={<GrFormAdd className="float_button_icon" />} className=
-            {window.location.pathname !== "/listings/new" ? "float_button" : "float_button-hidden"} />
+            {window.location.pathname === "/" ? "float_button" : "float_button-hidden"} />
           <button className="menu_add_listing">Create a new posting</button>
         </NavLink>
       </nav>
