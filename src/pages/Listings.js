@@ -25,6 +25,7 @@ function Listings() {
               <Post
                 key={post.id}
                 id={post.id}
+                category={post.category}
                 title={post.title}
                 description={post.description}
                 price={post.price}

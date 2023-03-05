@@ -24,14 +24,15 @@ export function Listing() {
         .then((res) => {
           setListingDetails(res.data);
           user_id = res.data.user_id;
-          if (user_id != undefined) {
+          if (user_id !== undefined) {
             axios
               .get(localStorage.getItem("backend_url") + "/api/user/" + user_id)
               .then((res) => {
                 setUserDetails(res.data[0]);
                 console.log(listingDetails, userDetails)
               });
-          }
+          };
+
         });
     }
 

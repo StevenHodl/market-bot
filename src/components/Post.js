@@ -8,8 +8,9 @@ import { faEuroSign, faBolt } from '@fortawesome/free-solid-svg-icons'
 
 class Post extends Component {
   render() {
-    const { id, title, description, images, price, curr, rating, user } = this.props;
+    const { id, category, title, description, images, price, curr, rating, user } = this.props;
     let images_arr = [];
+    let tag_color = (category === 'Market' ? 'volcano' : 'green');
     images.map((image) => {
       images_arr.push(
         localStorage.getItem("backend_url") + "/image/" + image.filename
@@ -33,10 +34,10 @@ class Post extends Component {
           </div>
         </div>
         <div className="card_badge_container">
-          <Tag color="volcano">Market</Tag>
+          <Tag color={tag_color}>{category}</Tag>
         </div>
         <div className="card_footer">
-          <Avatar /*src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}*/>
+          <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}>
             {user[0]?.name?.charAt(0) + ((!user[0].surname) ? user[0]?.name?.charAt(1) : user[0].surname.charAt(0))}
           </Avatar>
           <div className="px-3">{user[0].name + (!user[0].surname ? `` : ` ${user[0].surname}`)}</div>
