@@ -3,10 +3,12 @@ import "./Post.css";
 import { Avatar, Rate, Tag } from "antd";
 import { Link } from "react-router-dom";
 import SlideShow from "../components/commons/SlideShow";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEuroSign, faBolt } from '@fortawesome/free-solid-svg-icons'
 
 class Post extends Component {
   render() {
-    const { id, title, description, images, price, rating, user } = this.props;
+    const { id, title, description, images, price, curr, rating, user } = this.props;
     let images_arr = [];
     images.map((image) => {
       images_arr.push(
@@ -27,7 +29,7 @@ class Post extends Component {
               </Link>
             </h5>
             <p className="card_description">{description}</p>
-            <h5 className="card_price">€{price}</h5>
+            <h5 className="card_price"><FontAwesomeIcon icon={curr === 'SAT' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(price)}</h5>
           </div>
         </div>
         <div className="card_badge_container">

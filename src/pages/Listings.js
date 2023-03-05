@@ -28,6 +28,7 @@ function Listings() {
                 title={post.title}
                 description={post.description}
                 price={post.price}
+                curr={post.currency}
                 images={post.images}
                 rating={post.rating}
                 user={post.user}
