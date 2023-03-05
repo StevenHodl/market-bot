@@ -178,7 +178,7 @@ export function Listing() {
               {/*               <div className="avatar-content">
                 <span style={{ margin: 'auto' }}>L</span>
               </div> */}
-              <Avatar /*src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}*/>
+              <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${userDetails?.id}.jpg`}>
                 {userDetails?.name?.charAt(0) + ((!userDetails.surname) ? userDetails?.name?.charAt(1) : userDetails.surname.charAt(0))}
               </Avatar>
               <div className="detail-content">
@@ -241,7 +241,7 @@ export function Listing() {
                 {/* <div className="avatar-content">
                   <span style={{ margin: 'auto' }}>L</span>
                 </div> */}
-                <Avatar /*src={`${localStorage.getItem("backend_url")}/avatar/${user[0]?.id}.jpg`}*/>
+                <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${userDetails?.id}.jpg`}>
                   {userDetails?.name?.charAt(0) + ((!userDetails.surname) ? userDetails?.name?.charAt(1) : userDetails.surname.charAt(0))}
                 </Avatar>
                 <div className="detail-content">
