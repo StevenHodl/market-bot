@@ -29,7 +29,7 @@ class Post extends Component {
               </Link>
             </h5>
             <p className="card_description">{description}</p>
-            <h5 className="card_price"><FontAwesomeIcon icon={curr === 'SAT' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(price)}</h5>
+            <h5 className="card_price"><FontAwesomeIcon icon={curr === 'Sat' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(price)}</h5>
           </div>
         </div>
         <div className="card_badge_container">

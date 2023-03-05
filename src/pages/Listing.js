@@ -169,7 +169,7 @@ export function Listing() {
                     <FontAwesomeIcon icon={faLocationDot} style={{ paddingRight: '.5rem' }} />
                     <span>VIGODARZERE (PD)</span>
                   </div>
-                  <div className="post-price"><FontAwesomeIcon icon={listingDetails.currency === 'SAT' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(listingDetails.price)} </div>
+                  <div className="post-price"><FontAwesomeIcon icon={listingDetails.currency === 'Sat' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(listingDetails.price)} </div>
                 </div>
               </div>
             </div>
