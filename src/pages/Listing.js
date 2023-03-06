@@ -14,8 +14,6 @@ import { faShareNodes, faLocationDot, faEuroSign, faBolt } from '@fortawesome/fr
 export function Listing() {
   let { id } = useParams();
   const [listingDetails, setListingDetails] = useState([]);
-  const [userDetails, setUserDetails] = useState([]);
-  let user_id;
 
   useEffect(() => {
     if (id != undefined) {
@@ -23,16 +21,6 @@ export function Listing() {
         .get(localStorage.getItem("backend_url") + "/api/post/" + id)
         .then((res) => {
           setListingDetails(res.data);
-          user_id = res.data.user_id;
-          if (user_id !== undefined) {
-            axios
-              .get(localStorage.getItem("backend_url") + "/api/user/" + user_id)
-              .then((res) => {
-                setUserDetails(res.data[0]);
-                console.log(listingDetails, userDetails)
-              });
-          };
-
         });
     }
 
@@ -125,6 +113,11 @@ export function Listing() {
       tags: ['senior'],
     },
   ];
+  let imageList = []
+  listingDetails.images?.map((image) => {
+    const obj = { original: `${localStorage.getItem("backend_url")}/image/${image.filename}`, thumbnail: `${localStorage.getItem("backend_url")}/image/${image.filename}` };
+    imageList.push(obj)
+  })
 
   return (
 
@@ -132,7 +125,7 @@ export function Listing() {
       <div className="container">
         <div className="top_section">
           <div className="images_container">
-            {images !== undefined ? <ImageSliderComponent images={images} /> : <p>Pippo</p>}
+            {imageList?.length > 0 ? <ImageSliderComponent images={imageList} /> : <></>}
             {/* <ImageSliderComponent images={images} /> */}
           </div>
           <div className="info main_info">
@@ -161,7 +154,7 @@ export function Listing() {
                     <span className="post-follow-number">9</span>
                   </div>
                   <div className="post-id">
-                    <span>{`ID:  ${listingDetails.id}`}</span>
+                    <span>{`ID: ${listingDetails.id}`}</span>
                   </div>
                 </div>
                 <div className="post-body">
@@ -178,11 +171,11 @@ export function Listing() {
               {/*               <div className="avatar-content">
                 <span style={{ margin: 'auto' }}>L</span>
               </div> */}
-              <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${userDetails?.id}.jpg`}>
-                {userDetails?.name?.charAt(0) + ((!userDetails.surname) ? userDetails?.name?.charAt(1) : userDetails.surname.charAt(0))}
+              <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user?.id}.jpg`}>
+                {listingDetails.user?.name?.charAt(0) + ((!listingDetails.user?.surname) ? listingDetails.user?.name?.charAt(1) : listingDetails.user?.surname.charAt(0))}
               </Avatar>
               <div className="detail-content">
-                <span className="user-name">{userDetails.name + (!userDetails.surname ? `` : ` ${userDetails.surname}`)}</span>
+                <span className="user-name">{listingDetails.user?.name + (!listingDetails.user?.surname ? `` : ` ${listingDetails.user?.surname}`)}</span>
                 <div>
                   <span className="user-rate">5.0</span>
                   <Rate
@@ -241,11 +234,11 @@ export function Listing() {
                 {/* <div className="avatar-content">
                   <span style={{ margin: 'auto' }}>L</span>
                 </div> */}
-                <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${userDetails?.id}.jpg`}>
-                  {userDetails?.name?.charAt(0) + ((!userDetails.surname) ? userDetails?.name?.charAt(1) : userDetails.surname.charAt(0))}
+                <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user?.id}.jpg`}>
+                  {listingDetails.user?.name?.charAt(0) + ((!listingDetails.user?.surname) ? listingDetails.user?.name?.charAt(1) : listingDetails.user?.surname.charAt(0))}
                 </Avatar>
                 <div className="detail-content">
-                  <span className="user-name">{userDetails.name + (!userDetails.surname ? `` : ` ${userDetails.surname}`)}</span>
+                  <span className="user-name">{listingDetails.user?.name + (!listingDetails.user?.surname ? `` : ` ${listingDetails.user?.surname}`)}</span>
                   <div style={{ lineHeight: 1.5 }}>
                     <span className="user-rate">5.0</span>
                     <Rate

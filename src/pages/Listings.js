@@ -12,7 +12,6 @@ function Listings() {
       .get(localStorage.getItem("backend_url") + "/api/post/")
       .then((res) => {
         setPosts(res.data);
-        console.log(res.data)
       });
   }, []);
 
