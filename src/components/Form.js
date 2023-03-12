@@ -37,7 +37,6 @@ function Form() {
   const delay = ms => new Promise(res => setTimeout(res, ms));
 
   const onFinish = async (formInputData) => {
-    console.log("onfinish", formInputData)
     let post_id;
     console.log("sending POST request to backend");
     await axios
@@ -54,13 +53,11 @@ function Form() {
       })
       .then((response) => {
         post_id = response.data.id;
-        formInputData?.files?.fileList.map((file) => {
-          console.log(formInputData.files.fileList);
+        formInputData?.files?.fileList?.map((file) => {
           const formData = new FormData();
           formData.append("orig_name", file.name);
           formData.append("post_id", post_id);
           formData.append("image_file", file.originFileObj);
-          console.log(formData);
           axios.post(
             localStorage.getItem("backend_url") + "/api/post/image/",
             formData
@@ -75,7 +72,6 @@ function Form() {
   };
 
   const handleChange = (propName, value) => {
-    console.log(formData)
     setFormData((formData) => {
       return {
         ...formData,
@@ -91,9 +87,7 @@ function Form() {
 
     const user_id = tg?.initDataUnsafe?.user?.id;
     if (user_id !== undefined) {
-      console.log(user_id)
       formDataPersist.user_id = user_id
-      console.log(formDataPersist)
       onFinish(formDataPersist);
     } else {
       console.error("user not identified")

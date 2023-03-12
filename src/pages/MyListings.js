@@ -15,8 +15,8 @@ function MyListings() {
   const handleDelete = (e, postId, userId) => {
     e.preventDefault()
 
-    console.log(userId, Number(tg?.initDataUnsafe?.user?.id))
-    if (userId === Number(tg?.initDataUnsafe?.user?.id)) {
+    console.log(Number(userId), Number(tg?.initDataUnsafe?.user?.id))
+    if (Number(userId) === Number(tg?.initDataUnsafe?.user?.id)) {
       axios
         .delete(localStorage.getItem("backend_url") + "/api/post/" + postId)
         .then((res) => {
