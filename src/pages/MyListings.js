@@ -31,8 +31,9 @@ function MyListings() {
   }
 
   useEffect(() => {
+    console.log("/api/post?username=" + tg?.initDataUnsafe?.user?.username)
     axios
-      .get(localStorage.getItem("backend_url") + "/api/post?username=StevenTheHodler")
+      .get(localStorage.getItem("backend_url") + "/api/post?username=" + tg?.initDataUnsafe?.user?.username)
       .then((res) => {
         setPosts(res.data);
       });
