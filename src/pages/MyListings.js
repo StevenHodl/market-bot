@@ -15,7 +15,6 @@ function MyListings() {
   const handleDelete = (e, postId, userId) => {
     e.preventDefault()
 
-    console.log(Number(userId), Number(tg?.initDataUnsafe?.user?.id))
     if (Number(userId) === Number(tg?.initDataUnsafe?.user?.id)) {
       axios
         .delete(localStorage.getItem("backend_url") + "/api/post/" + postId)
@@ -34,7 +33,7 @@ function MyListings() {
 
   useEffect(() => {
     axios
-      .get(localStorage.getItem("backend_url") + "/api/post?username=" + tg?.initDataUnsafe?.user?.username)
+      .get(localStorage.getItem("backend_url") + "/api/post?userid=" + tg?.initDataUnsafe?.user?.id)
       .then((res) => {
         setPosts(res.data);
       });
