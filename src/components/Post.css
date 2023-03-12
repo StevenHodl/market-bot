@@ -97,3 +97,7 @@
   margin: 4px;
   gap: 5px;
 }
+
+.btn_delete {
+  margin-left: auto;
+}

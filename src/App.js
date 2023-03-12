@@ -1,6 +1,6 @@
 import React, { Component, useEffect } from "react";
-import Home from "./pages/Home";
 import Categories from "./pages/Categories";
+import MyListings from "./pages/MyListings";
 import { ListingRoutes } from "./components/commons/ListingRoutes";
 import NotFound from "./pages/NotFound";
 import Admin from "./pages/Admin";
@@ -18,6 +18,7 @@ function App() {
       <Route path="/" element={<ListingRoutes />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/listings/*" element={<ListingRoutes />} />
+      <Route path="/my_listings/*" element={<MyListings />} />
       <Route path="/admin" element={<Admin />} />
       <Route path="*" element={<NotFound />} />
     </Routes>

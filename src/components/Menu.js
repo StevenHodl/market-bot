@@ -41,7 +41,7 @@ class Menu extends Component {
         >
           <MenuLi to="/" label="Home" />
           <MenuLi to="/categories" label="Categories" />
-          {/* <MenuLi to="/listings" label="Listings" /> */}
+          <MenuLi to="/my_listings" label="My Posts" />
           {/* <MenuLi to="/admin" label="Admin" /> */}
 
 

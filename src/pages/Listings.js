@@ -23,15 +23,7 @@ function Listings() {
             return (
               <Post
                 key={post.id}
-                id={post.id}
-                category={post.category}
-                title={post.title}
-                description={post.description}
-                price={post.price}
-                curr={post.currency}
-                images={post.images}
-                rating={post.rating}
-                user={post.user}
+                postData={post}
               />
             );
           })}
