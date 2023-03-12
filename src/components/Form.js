@@ -71,7 +71,7 @@ function Form() {
     await delay(2000);
     await tg.MainButton.hideProgress()
     await tg.MainButton.hide().then(
-      navigate("/listings"));
+      navigate("/"));
   };
 
   const handleChange = (propName, value) => {
@@ -202,7 +202,7 @@ function Form() {
           <Input.Group compact>
 
             <Input value={formData.price} style={{ width: '40%' }} type="number" onChange={(e) => handleChange("price", e.target.value)} ></Input>
-            <Select defaultValue="Euro" value={formData.curr} style={{ minWidth: '40px' }} onChange={(e) => handleChange("curr", e)} >
+            <Select defaultValue="Euro" required value={formData.curr} style={{ minWidth: '40px' }} onChange={(e) => handleChange("curr", e)} >
               <Select.Option value="Sat" >Sats</Select.Option>
               <Select.Option value="Eur" >Euro</Select.Option>
             </Select>
