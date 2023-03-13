@@ -20,7 +20,8 @@ export function Listing() {
       axios
         .get(localStorage.getItem("backend_url") + "/api/post/" + id)
         .then((res) => {
-          setListingDetails(res.data);
+          console.log(res.data)
+          setListingDetails(res.data[0]);
         });
     }
 
@@ -160,11 +161,11 @@ export function Listing() {
               {/*               <div className="avatar-content">
                 <span style={{ margin: 'auto' }}>L</span>
               </div> */}
-              <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user?.id}.jpg`}>
-                {listingDetails.user?.name?.charAt(0) + ((!listingDetails.user?.surname) ? listingDetails.user?.name?.charAt(1) : listingDetails.user?.surname.charAt(0))}
+              <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user[0]?.id}.jpg`}>
+                {listingDetails.user[0]?.name?.charAt(0) + ((!listingDetails.user[0]?.surname) ? listingDetails.user[0]?.name?.charAt(1) : listingDetails.user[0]?.surname.charAt(0))}
               </Avatar>
               <div className="detail-content">
-                <span className="user-name">{listingDetails.user?.name + (!listingDetails.user?.surname ? `` : ` ${listingDetails.user?.surname}`)}</span>
+                <span className="user-name">{listingDetails.user[0]?.name + (!listingDetails.user[0]?.surname ? `` : ` ${listingDetails.user[0]?.surname}`)}</span>
                 <div>
                   <span className="user-rate">5.0</span>
                   <Rate
@@ -223,11 +224,11 @@ export function Listing() {
                 {/* <div className="avatar-content">
                   <span style={{ margin: 'auto' }}>L</span>
                 </div> */}
-                <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user?.id}.jpg`}>
-                  {listingDetails.user?.name?.charAt(0) + ((!listingDetails.user?.surname) ? listingDetails.user?.name?.charAt(1) : listingDetails.user?.surname.charAt(0))}
+                <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${listingDetails.user[0]?.id}.jpg`}>
+                  {listingDetails.user[0]?.name?.charAt(0) + ((!listingDetails.user[0]?.surname) ? listingDetails.user[0]?.name?.charAt(1) : listingDetails.user[0]?.surname.charAt(0))}
                 </Avatar>
                 <div className="detail-content">
-                  <span className="user-name">{listingDetails.user?.name + (!listingDetails.user?.surname ? `` : ` ${listingDetails.user?.surname}`)}</span>
+                  <span className="user-name">{listingDetails.user[0]?.name + (!listingDetails.user[0]?.surname ? `` : ` ${listingDetails.user[0]?.surname}`)}</span>
                   <div style={{ lineHeight: 1.5 }}>
                     <span className="user-rate">5.0</span>
                     <Rate
