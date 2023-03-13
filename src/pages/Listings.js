@@ -19,7 +19,6 @@ function Listings(props) {
     default: filter = ""
   }
   useEffect(() => {
-    console.log(filter)
     axios
       .get(localStorage.getItem("backend_url") + "/api/post/" + filter)
       .then((res) => {
