@@ -3,3 +3,15 @@
   margin: "0px";
   text-align: "center";
 }
+
+.empty {
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+}
+
+.btn_new_post {
+  color: var(--tg-theme-button-text-color, #ffffff);
+  background-color: var(--tg-theme-button-color, #40a7e3);
+  font-family: "Open Sans";
+}
