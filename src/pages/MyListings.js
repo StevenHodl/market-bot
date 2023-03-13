@@ -1,5 +1,5 @@
 import axios from "axios";
-import { message } from "antd";
+import { message, Empty, Button } from "antd";
 import "./MyListings.css";
 import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";
@@ -41,21 +41,33 @@ function MyListings() {
 
   return (
     <PageWrapper>
-      <div className="listings_area">
-        <div className="row">
-          {posts.map((post) => {
-            return (
-              <Post
-                key={post.id}
-                postData={post}
-                deleteButton={true}
-                handleDelete={handleDelete}
-              />
-            );
-          })}
+      {posts.length > 0 ?
+        <div className="listings_area">
+          <div className="row">
+            {posts.map((post) => {
+              return (
+                <Post
+                  key={post.id}
+                  postData={post}
+                  deleteButton={true}
+                  handleDelete={handleDelete}
+                />
+              );
+            })}
+          </div>
         </div>
-      </div>
-    </PageWrapper>
+        :
+        <Empty
+          className="empty"
+          imageStyle={{
+            height: 100,
+          }}
+          description="There are no posts here!"
+        >
+          <Button className="btn_new_post" type="primary">Create Now</Button>
+        </Empty>
+      }
+    </PageWrapper >
   );
 }
 

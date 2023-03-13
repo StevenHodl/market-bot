@@ -16,9 +16,9 @@ class Categories extends Component {
             <h2 className="banner_title">Explore our sections</h2>
           </div>
           <div className="box_container">
-            <Box label="Market" color="#f2a601"></Box>
-            <Box label="Services" color="#06ba9c"></Box>
-            <Box label="Exchange" color="#9c24fc"></Box>
+            <Box to="/listings/market" label="Market" color="#f2a601"></Box>
+            <Box to="/listings/services" label="Services" color="#06ba9c"></Box>
+            <Box to="/listings/exchange" label="Exchange" color="#9c24fc"></Box>
           </div>
         </div>
       </PageWrapper>

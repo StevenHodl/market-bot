@@ -12,10 +12,9 @@ function App() {
     tele.ready();
     tele.expand();
   });
-
   return (
     <Routes>
-      <Route path="/" element={<ListingRoutes />} />
+      <Route path="/*" element={<ListingRoutes />} />
       <Route path="/categories" element={<Categories />} />
       <Route path="/listings/*" element={<ListingRoutes />} />
       <Route path="/my_listings/*" element={<MyListings />} />
