@@ -36,17 +36,17 @@ class Post extends Component {
 
           </div>
           {deleteButton === true ? <Tooltip className='btn_delete' title="delete" placement="bottomRight">
-            <Button danger icon={<DeleteOutlined />} onClick={(e) => handleDelete(e, postData.id, postData.user[0].id)} />
+            <Button danger icon={<DeleteOutlined />} onClick={(e) => handleDelete(e, postData.id, postData.user?.id)} />
           </Tooltip> : <></>}
         </div>
         <div className="card_badge_container">
           <Tag color={tag_color}>{postData.category}</Tag>
         </div>
         <div className="card_footer">
-          <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${postData.user[0]?.id}.jpg`}>
-            {postData.user[0]?.name?.charAt(0) + ((!postData.user[0].surname) ? postData.user[0]?.name?.charAt(1) : postData.user[0].surname.charAt(0))}
+          <Avatar src={`${localStorage.getItem("backend_url")}/avatar/${postData.user?.id}.jpg`}>
+            {postData.user?.name?.charAt(0) + ((!postData.user?.surname) ? postData.user?.name?.charAt(1) : postData.user?.surname.charAt(0))}
           </Avatar>
-          <div className="px-3">{postData.user[0].name + (!postData.user[0].surname ? `` : ` ${postData.user[0].surname}`)}</div>
+          <div className="px-3">{postData.user?.name + (!postData.user?.surname ? `` : ` ${postData.user?.surname}`)}</div>
           <span
             className="ant-rate-text"
             style={{ padding: "2px", marginLeft: "auto" }}

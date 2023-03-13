@@ -21,7 +21,7 @@ export function Listing() {
         .get(localStorage.getItem("backend_url") + "/api/post/" + id)
         .then((res) => {
           console.log(res.data)
-          setListingDetails(res.data[0]);
+          setListingDetails(res.data);
         });
     }
 
@@ -105,6 +105,7 @@ export function Listing() {
     },
   ];
   let imageList = []
+  console.log(listingDetails.images)
   listingDetails.images?.map((image) => {
     const obj = { original: `${localStorage.getItem("backend_url")}/image/${image.filename}`, thumbnail: `${localStorage.getItem("backend_url")}/image/${image.filename}` };
     imageList.push(obj)
@@ -153,7 +154,9 @@ export function Listing() {
                     <FontAwesomeIcon icon={faLocationDot} style={{ paddingRight: '.5rem' }} />
                     <span>VIGODARZERE (PD)</span>
                   </div>
-                  <div className="post-price"><FontAwesomeIcon icon={listingDetails.currency === 'Sat' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} /> {parseFloat(listingDetails.price)} </div>
+                  <div className="post-price"><FontAwesomeIcon icon={listingDetails.currency === 'Sat' ? faBolt : faEuroSign} style={{ paddingRight: '.5rem' }} />
+                    {parseFloat(listingDetails.price)}
+                  </div>
                 </div>
               </div>
             </div>
