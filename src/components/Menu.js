@@ -39,7 +39,7 @@ class Menu extends Component {
             menu_is_expanded ? "" : "menu_list_hide"
           )}
         >
-          <MenuLi to="/listings" label="Home" />
+          <MenuLi to="/" label="Home" />
           <MenuLi to="/categories" label="Categories" />
           <MenuLi to="/my_listings" label="My Posts" />
           {/* <MenuLi to="/admin" label="Admin" /> */}
