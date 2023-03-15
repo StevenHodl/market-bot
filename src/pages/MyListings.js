@@ -1,5 +1,5 @@
 import axios from "axios";
-import { message, Empty, Button } from "antd";
+import { message, Empty, Button, Skeleton } from "antd";
 import "./MyListings.css";
 import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";
@@ -9,6 +9,7 @@ import { useTg } from "../hooks/useTg";
 
 function MyListings() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const { tg } = useTg();
 
@@ -35,40 +36,47 @@ function MyListings() {
       .get(localStorage.getItem("backend_url") + "/api/post?userid=" + tg?.initDataUnsafe?.user?.id)
       .then((res) => {
         setPosts(res.data);
-        console.log(res.data)
+        setLoading(false);
       });
   }, []);
 
+
+
+
   return (
-    <PageWrapper>
-      {posts.length > 0 ?
-        <div className="listings_area">
-          <div className="row">
-            {posts.map((post) => {
-              return (
-                <Post
-                  key={post.id}
-                  postData={post}
-                  deleteButton={true}
-                  handleDelete={handleDelete}
-                />
-              );
-            })}
-          </div>
-        </div>
-        :
-        <Empty
-          className="empty"
-          imageStyle={{
-            height: 100,
-          }}
-          description="There are no posts here!"
-        >
-          <Button className="btn_new_post" type="primary">Create Now</Button>
-        </Empty>
-      }
+    <PageWrapper >
+      <Skeleton className="card_skeleton" loading={loading} title={{ size: "50%" }} avatar={{ size: 70 }} active>
+        {
+          posts.length > 0 ?
+            <div className="listings_area">
+              <div className="row">
+                {posts.map((post) => {
+                  return (
+                    <Post
+                      key={post.id}
+                      postData={post}
+                      deleteButton={true}
+                      handleDelete={handleDelete}
+                    />
+                  );
+                })}
+              </div>
+            </div>
+            :
+            <Empty
+              className="empty"
+              imageStyle={{
+                height: 100,
+              }}
+              description="There are no posts here!"
+            >
+              <Button className="btn_new_post" type="primary">Create Now</Button>
+            </Empty>
+        }
+      </Skeleton>
     </PageWrapper >
   );
 }
+
 
 export default MyListings;
