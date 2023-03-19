@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useLayoutEffect, useState } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import PageWrapper from "../components/commons/PageWrapper";
@@ -35,8 +35,6 @@ export function Listing() {
   useEffect(() => {
     tg.BackButton.show();
     tg.onEvent("backButtonClicked", onBack);
-
-
     if (id != undefined) {
       axios
         .get(localStorage.getItem("backend_url") + "/api/post/" + id)
@@ -53,6 +51,10 @@ export function Listing() {
       tg.offEvent("backButtonClicked", onBack);
     };
   }, [onBack]);
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0)
+  });
 
 
   const tableColumns = [
