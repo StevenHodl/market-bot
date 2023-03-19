@@ -2,6 +2,6 @@
   padding: 4px;
   display: flex;
   justify-content: center;
-  /* background-color: #ffffff; */
-  background-color: var(--tg-theme-bg-color, #ffffff);
+  background-color: #ffffff;
+  /* background-color: var(--tg-theme-bg-color, #ffffff); */
 }

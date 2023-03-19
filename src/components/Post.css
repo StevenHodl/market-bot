@@ -3,7 +3,8 @@
   border: 1px solid #dfe3ed;
   border-radius: 8px;
   position: relative;
-  background-color: var(--tg-theme-bg-color, #ffffff);
+  background-color: #ffffff;
+  /* background-color: var(--tg-theme-bg-color, #ffffff); */
 }
 
 .card a::before {
