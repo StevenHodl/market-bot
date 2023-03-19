@@ -13,6 +13,9 @@
 .bottom_section {
   display: flex;
   flex-direction: column;
+  gap: 30px;
+  margin-top: 40px;
+  width: 100%;
 }
 .images_container {
   width: 70%;
@@ -206,6 +209,7 @@
   width: 100%;
   border: 1px solid var(--tg-theme-third-bg-color);
   padding: 1.5rem 1.5rem;
+  gap: 25px;
 }
 .advertiser_info .advertiser-section .user-info-section {
   display: flex;
@@ -308,7 +312,7 @@
   }
 
   .advertiser_info .advertiser-section {
-    flex-direction: column;
+    flex-direction: row;
   }
 }
 
