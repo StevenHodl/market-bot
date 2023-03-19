@@ -6,7 +6,12 @@ import PageWrapper from "../components/commons/PageWrapper";
 import CardSkeleton from "../components/commons/CardSkeleton";
 import Post from "../components/Post";
 
+import { useTg } from "../hooks/useTg";
+
 function Listings(props) {
+
+  const { tg } = useTg();
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -21,6 +26,9 @@ function Listings(props) {
     default: filter = ""
   }
   useEffect(() => {
+
+    tg.BackButton.hide();
+
     axios
       .get(localStorage.getItem("backend_url") + "/api/post/" + filter)
       .then((res) => {

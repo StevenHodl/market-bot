@@ -33,6 +33,9 @@ function MyListings() {
   }
 
   useEffect(() => {
+
+    tg.BackButton.hide();
+
     axios
       .get(localStorage.getItem("backend_url") + "/api/post?userid=" + tg?.initDataUnsafe?.user?.id)
       .then((res) => {

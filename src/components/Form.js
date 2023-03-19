@@ -205,7 +205,7 @@ function Form() {
           <Input.Group compact>
 
             <Input value={formData.price} style={{ width: '40%' }} type="number" onChange={(e) => handleChange("price", e.target.value)} ></Input>
-            <Select defaultValue="Euro" required value={formData.curr} style={{ minWidth: '40px' }} onChange={(e) => handleChange("curr", e)} >
+            <Select defaultValue="Euro" required value={formData.curr} style={{ minWidth: '70px' }} onChange={(e) => handleChange("curr", e)} >
               <Select.Option value="Sat" >Sats</Select.Option>
               <Select.Option value="Eur" >Euro</Select.Option>
             </Select>
