@@ -1,0 +1,21 @@
+.listings_area {
+  width: clamp(300px, 90%, 1000px);
+  margin: "0px";
+  text-align: "center";
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.skeleton_card {
+  margin: 20px 2px 0px 2px;
+  border: 1px solid #dfe3ed;
+  border-radius: 8px;
+  position: relative;
+  width: 90%;
+  height: 190px;
+}

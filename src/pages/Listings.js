@@ -3,6 +3,7 @@ import "./Listings.css";
 import { Empty, Button, Skeleton } from "antd";
 import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";
+import CardSkeleton from "../components/commons/CardSkeleton";
 import Post from "../components/Post";
 
 function Listings(props) {
@@ -25,12 +26,16 @@ function Listings(props) {
       .then((res) => {
         setPosts(res.data);
         setLoading(false);
-      });
+      }).catch(function (error) {
+        if (error.response) {
+          setLoading(false);
+        }
+      });;
   }, [filter]);
 
   return (
     <PageWrapper>
-      <Skeleton className="card_skeleton" loading={loading} title={{ size: "50%" }} avatar={{ size: 70 }} active>
+      {loading === true ? <CardSkeleton /> : <>
         {posts.length > 0 ?
           <div className="listings_area">
             <div className="row">
@@ -55,7 +60,7 @@ function Listings(props) {
             <Button className="btn_new_post" type="primary">Create Now</Button>
           </Empty>
         }
-      </Skeleton>
+      </>}
     </PageWrapper>
   );
 }

@@ -15,12 +15,3 @@
   background-color: var(--tg-theme-button-color, #40a7e3);
   font-family: "Open Sans";
 }
-
-.card_skeleton {
-  width: clamp(300px, 90%, 1000px);
-  height: clamp(200px, 90%, 450px);
-  border: 2px solid lightgray;
-  border-radius: 8px;
-  padding: 60px;
-  margin-block: 20px;
-}
