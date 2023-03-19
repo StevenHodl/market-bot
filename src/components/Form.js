@@ -80,6 +80,7 @@ function Form() {
     });
   };
 
+  const onBack = () => { navigate(-1) }
 
   const onSendData = useCallback(() => {
     tg.MainButton.showProgress(false);
@@ -100,13 +101,18 @@ function Form() {
   }
 
   useEffect(() => {
+    tg.BackButton.show();
+    tg.onEvent("backButtonClicked", onBack);
+
     tg.MainButton.text = "Submit";
     tg.MainButton.show();
     tg.onEvent("mainButtonClicked", onSubmit);
     return () => {
+
+      tg.offEvent("backButtonClicked", onBack);
       tg.offEvent("mainButtonClicked", onSubmit);
     };
-  }, [onSubmit]);
+  }, [onBack, onSubmit]);
 
   const [messageApi, contextHolder] = message.useMessage();
   const showProgressMsg = () => {
