@@ -21,7 +21,8 @@
 
 .menu_list {
   color: var(--tg-theme-button-color, #40a7e3);
-  background-color: var(--tg-theme-button-text-color, #ffffff);
+  /* background-color: var(--tg-theme-button-text-color, #ffffff); */
+  background-color: #ffffff;
   padding: 0px;
   margin: 0px;
   display: flex;
