@@ -1,5 +1,5 @@
 import axios from "axios";
-import { message, Empty, Button, Skeleton } from "antd";
+import { message, Empty, Button } from "antd";
 import "./MyListings.css";
 import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";

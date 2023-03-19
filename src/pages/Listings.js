@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./Listings.css";
-import { Empty, Button, Skeleton } from "antd";
+import { Empty, Button } from "antd";
 import React, { useEffect, useState } from "react";
 import PageWrapper from "../components/commons/PageWrapper";
 import CardSkeleton from "../components/commons/CardSkeleton";
