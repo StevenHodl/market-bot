@@ -80,7 +80,11 @@ function Form() {
     });
   };
 
-  const onBack = () => { navigate(-1) }
+  const onBack = () => {
+    tg.BackButton.hide();
+    tg.MainButton.hide();
+    navigate(-1)
+  }
 
   const onSendData = useCallback(() => {
     tg.MainButton.showProgress(false);
@@ -108,7 +112,6 @@ function Form() {
     tg.MainButton.show();
     tg.onEvent("mainButtonClicked", onSubmit);
     return () => {
-
       tg.offEvent("backButtonClicked", onBack);
       tg.offEvent("mainButtonClicked", onSubmit);
     };

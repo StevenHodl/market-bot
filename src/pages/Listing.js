@@ -9,13 +9,32 @@ import ImageSliderComponent from "../components/commons/ImageSlider";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-regular-svg-icons'
 import { faShareNodes, faLocationDot, faEuroSign, faBolt } from '@fortawesome/free-solid-svg-icons'
+import { useNavigate } from "react-router-dom";
+
+import { useTg } from "../hooks/useTg";
+
+
 
 
 export function Listing() {
+
+  const { tg } = useTg();
+  const navigate = useNavigate();
+
   let { id } = useParams();
   const [listingDetails, setListingDetails] = useState([]);
 
+  const onBack = () => {
+    tg.BackButton.hide();
+    tg.MainButton.hide();
+    navigate(-1)
+  }
+
   useEffect(() => {
+    tg.BackButton.show();
+    tg.onEvent("backButtonClicked", onBack);
+
+
     if (id != undefined) {
       axios
         .get(localStorage.getItem("backend_url") + "/api/post/" + id)
@@ -24,8 +43,10 @@ export function Listing() {
           setListingDetails(res.data);
         });
     }
-
-  }, []);
+    return () => {
+      tg.offEvent("backButtonClicked", onBack);
+    };
+  }, [onBack]);
 
 
   const tableColumns = [
