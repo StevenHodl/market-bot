@@ -24,6 +24,7 @@ function Listings(props) {
     axios
       .get(localStorage.getItem("backend_url") + "/api/post/" + filter)
       .then((res) => {
+        res.data.sort((a, b) => a.created_on - b.created_on);
         setPosts(res.data);
         setLoading(false);
       }).catch(function (error) {
